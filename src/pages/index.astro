@@ -1,11 +1,15 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/NavBar.astro';
+import { Image } from 'astro:assets';
+import localBirdImage from '../assets/kmiLogo.png';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Kmi Portfolio">
+ <main class="flex justify-between ">
+	<NavBar />
+
+	<Image src={localBirdImage} alt="Logo Kmi" class="w-20 h-20 object-cover " />
+ </main>
 </Layout>
