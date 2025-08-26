@@ -1,0 +1,11 @@
+---
+import { Image } from 'astro:assets';
+import localBirdImage from '../assets/kmiLogo.png';
+import NavBar from './NavBar.astro';
+---
+
+<header class="flex items-center justify-between py-4">
+	<NavBar />
+    <Image src={localBirdImage} alt="Logo Kmi" class="w-20 h-20 object-cover " />
+	
+</header>

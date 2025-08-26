@@ -1,15 +1,52 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import NavBar from '../components/NavBar.astro';
-import { Image } from 'astro:assets';
-import localBirdImage from '../assets/kmiLogo.png';
-
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Proyectos from '../components/Proyectos.astro';
+import Bio from '../components/Bio.astro';
 ---
 
 <Layout title="Kmi Portfolio">
- <main class="flex justify-between ">
-	<NavBar />
-
-	<Image src={localBirdImage} alt="Logo Kmi" class="w-20 h-20 object-cover " />
+ <main class="pl-[3vw] pr-[3vw]">
+	<Header />
+	<!-- Cambié top por bottom -->
+	<div id="bio-panel" class="absolute -top-[500%] transition-all duration-500"> <Bio /></div>
+	<Proyectos />
+	<Footer />
  </main>
 </Layout>
+
+<script type="module">
+const panel = document.getElementById('bio-panel');
+if (panel) {
+	document.addEventListener('click', (e) => {
+		const anchor = e.target.closest && e.target.closest('a[href="/bio"]');
+		
+		if (anchor) {
+			e.preventDefault();
+			// Cambié las clases para usar top
+			panel.classList.toggle('-top-[500%]');
+			panel.classList.toggle('top-0');
+			return;
+		}
+
+		const isOpen = panel.classList.contains('top-0');
+		if (isOpen) {
+			const clickedInsidePanel = e.target.closest && e.target.closest('#bio-panel');
+			
+			if (!clickedInsidePanel) {
+				panel.classList.remove('top-0');
+				panel.classList.add('-top-[500%]');
+			}
+		}
+	});
+
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape' && panel.classList.contains('top-0')) {
+			panel.classList.remove('top-0');
+			panel.classList.add('-top-[500%]');
+		}
+	});
+}
+</script>
+
