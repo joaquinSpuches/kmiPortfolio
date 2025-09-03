@@ -7,10 +7,10 @@ import Bio from '../components/Bio.astro';
 ---
 
 <Layout title="Kmi Portfolio">
- <main class="pl-[3vw] pr-[3vw]">
+ <main class="">
 	<Header />
 	<!-- Cambié top por bottom -->
-	<div id="bio-panel" class="absolute -top-[500%] transition-all duration-500"> <Bio /></div>
+	<div id="bio-panel" class="absolute z-10 -top-[500%] left-0 p-10 h-screen w-screen bg-[#00000087] transition-all duration-500"> <Bio /></div>
 	<Proyectos />
 	<Footer />
  </main>

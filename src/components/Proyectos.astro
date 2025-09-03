@@ -5,23 +5,29 @@ import axel_fiks from "../assets/proyectos/axel fiks.png";
 import catriel from "../assets/proyectos/catriel.png";
 import franzizca from "../assets/proyectos/franzizca.png";
 import no_te_vayas from "../assets/proyectos/NOTEVAYAS.png";
-
+import minerva from "../assets/proyectos/minerva.png";
 import scan from "../assets/proyectos/scan1.png";
 import scan2 from "../assets/proyectos/scan2.png";
 import scan3 from "../assets/proyectos/scan3.png";
 import que_me_hiciste from "../assets/proyectos/quemehiciste.png";
 import no_te_vayas2 from "../assets/proyectos/NOTEVAYAS.png";
 import pixel_azul from "../assets/proyectos/20250603-1444-02.9791464 1.png";
-
+import minerva2 from "../assets/proyectos/minerva2.png";
+import quetriste from "../assets/proyectos/quetriste.png";
+import clips from "../assets/proyectos/clips.png";
     const proyectos = [
+        { title: 'Minerva ', image: minerva },
+        { title: "Clips", image: clips },
         { title: "Valdrá la pena", image: valdra_la_pena },
+        { title: "Minerva 2", image: minerva2 },
+        { title: "Qué triste", image: quetriste },
         { title: "Axel Fiks", image: axel_fiks },
         { title: "Catriel", image: catriel },
         { title: "Franzizca", image: franzizca },
         { title: "No te vayas", image: no_te_vayas },
-       { title: "Scan", image: scan },
+        { title: "Scan", image: scan },
         { title: "Scan 2", image: scan2 },
-       { title: "Scan 3", image: scan3 },
+        { title: "Scan 3", image: scan3 },
         { title: "¿Qué me hiciste?", image: que_me_hiciste },
         { title: "No te vayas 2", image: no_te_vayas2 },
         { title: "Pixel Azul", image: pixel_azul },
@@ -31,14 +37,9 @@ import pixel_azul from "../assets/proyectos/20250603-1444-02.9791464 1.png";
 
 
 
-   <Image src={proyectos[0].image} alt={proyectos[0].title} class="mt-2 w-150" />
-    <Image src={proyectos[1].image} alt={proyectos[1].title} class="mt-2 w-150" />
-    <Image src={proyectos[2].image} alt={proyectos[2].title} class="mt-2 w-150" />
-    <Image src={proyectos[3].image} alt={proyectos[3].title} class="mt-2 w-150" />
-    <Image src={proyectos[4].image} alt={proyectos[4].title} class="mt-2 w-150" />
-    <Image src={proyectos[5].image} alt={proyectos[5].title} class="mt-2 w-150" />
-    <Image src={proyectos[6].image} alt={proyectos[6].title} class="mt-2 w-150" />
-    <Image src={proyectos[7].image} alt={proyectos[7].title} class="mt-2 w-150" />
-    <Image src={proyectos[8].image} alt={proyectos[8].title} class="mt-2 w-150" />
-    <Image src={proyectos[9].image} alt={proyectos[9].title} class="mt-2 w-150" />
-    <Image src={proyectos[10].image} alt={proyectos[10].title} class="mt-2 w-150" />
+<section> 
+    <div class=" z-0  w-screen"><Image src={proyectos[0].image} alt={proyectos[0].title} class="mt-2 w-full" /></div>
+    <div class=" -mt-[30vh]  "><Image src={proyectos[1].image} alt={proyectos[1].title} class="mt- w-[20vw] ml-[20vw]" /></div>
+    <div class=" ml-100"><Image src={proyectos[2].image} alt={proyectos[2].title} class="mt-2 w-[1400px]" /></div>
+
+</section>
