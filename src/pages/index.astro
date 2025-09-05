@@ -10,7 +10,8 @@ import Bio from '../components/Bio.astro';
  <main class="">
 	<Header />
 	<!-- Cambié top por bottom -->
-	<div id="bio-panel" class="absolute z-10 -top-[500%] left-0 p-10 h-screen w-screen bg-[#00000087] transition-all duration-500"> <Bio /></div>
+	 <div id="overlay" class="fixed inset-0 bg-black opacity-0 pointer-events-none transition-opacity duration-500"></div>
+	<div id="bio-panel" class="absolute z-10 -top-[500%] left-0 p-10 h-[200vh] w-screen  transition-all duration-500"> <Bio /></div>
 	<Proyectos />
 	<Footer />
  </main>
@@ -27,8 +28,13 @@ if (panel) {
 			// Cambié las clases para usar top
 			panel.classList.toggle('-top-[500%]');
 			panel.classList.toggle('top-0');
+			overlay.classList.remove("opacity-0", "pointer-events-none");
+overlay.classList.add("opacity-80"); // 50% oscuro
+
+			document.body.classList.add('no-scroll');
 			return;
 		}
+		
 
 		const isOpen = panel.classList.contains('top-0');
 		if (isOpen) {
@@ -37,6 +43,9 @@ if (panel) {
 			if (!clickedInsidePanel) {
 				panel.classList.remove('top-0');
 				panel.classList.add('-top-[500%]');
+				overlay.classList.add("opacity-0", "pointer-events-none");
+				overlay.classList.remove("opacity-80");
+				  document.body.classList.remove('no-scroll');
 			}
 		}
 	});
@@ -45,6 +54,9 @@ if (panel) {
 		if (e.key === 'Escape' && panel.classList.contains('top-0')) {
 			panel.classList.remove('top-0');
 			panel.classList.add('-top-[500%]');
+			overlay.classList.add("opacity-0", "pointer-events-none");
+			overlay.classList.remove("opacity-80");
+			  document.body.classList.remove('no-scroll');
 		}
 	});
 }

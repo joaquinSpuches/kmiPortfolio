@@ -3,8 +3,8 @@ import { Image } from "astro:assets";
 import fotoKmi from "../assets/bio/fotoKmi.png";
 ---
 
-<section class="z-20 flex bg-black-500 ">
-  <p class=" text-4xl">
+<section class="z-20 flex h-full bg-black-800 fixed ">
+  <p class=" text-4xl h-[90%] no-scrollbar overflow-y-scroll">
          Mi nombre es Camila Akel, tengo 25 años
 y soy oriunda de Buenos Aires.
 Me defino como una persona apasionada por la creatividad y amante de la música. 
@@ -29,6 +29,6 @@ fusionar mis saberes como productora general de eventos con conocimientos
 técnicos que me han ayudado a mejorar mi capacidad laboral.
   </p>
 
-  <img class="pr-[3vw] w-full h-full" src="/src/assets/bio/fotoKmi.png"/>
+  <Image loading="eager" decoding="async" src={fotoKmi} alt="Foto Kmi" class="pr-[3vw] w-[50vw] h-auto" />
 </section>
 
