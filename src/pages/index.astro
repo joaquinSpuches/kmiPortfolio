@@ -4,21 +4,43 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Proyectos from '../components/Proyectos.astro';
 import Bio from '../components/Bio.astro';
----
+---  
 
 <Layout title="Kmi Portfolio">
  <main class="">
 	<Header />
 	<!-- Cambié top por bottom -->
 	 <div id="overlay" class="fixed inset-0 bg-black opacity-0 pointer-events-none transition-opacity duration-500"></div>
-	<div id="bio-panel" class="absolute z-10 -top-[500%] left-0 p-10 h-[200vh] w-screen  transition-all duration-500"> <Bio /></div>
+	<div id="bio-panel" class="absolute z-10 -top-[500%] left-0 p-10 h-[200vh] w-screen  transition-all duration-500">
+		<button 
+    		id="close-bio" 
+    		class="absolute top-10 right-4 z-30 text-white text-3xl font-bold hover:text-gray-300"
+    		aria-label="Cerrar panel">
+			✕
+  		</button> 
+		<Bio />
+	</div>
 	<Proyectos />
 	<Footer />
  </main>
 </Layout>
 
 <script type="module">
+const closeBtn = document.getElementById('close-bio');
+const overlay = document.getElementById('overlay'); // si estás usando overlay
 const panel = document.getElementById('bio-panel');
+
+if (closeBtn) {
+  closeBtn.addEventListener('click', () => {
+   panel.classList.remove('top-0');
+			panel.classList.add('-top-[500%]');
+			overlay.classList.add("opacity-0", "pointer-events-none");
+			overlay.classList.remove("opacity-80");
+			  document.body.classList.remove('no-scroll');
+    document.body.classList.remove('no-scroll');
+
+  });
+}	
 if (panel) {
 	document.addEventListener('click', (e) => {
 		const anchor = e.target.closest && e.target.closest('a[href="/bio"]');
