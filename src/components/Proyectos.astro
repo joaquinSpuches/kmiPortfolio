@@ -1,46 +1,43 @@
 ---
-import { Image } from "astro:assets";
-import valdra_la_pena from "../assets/proyectos/proyectoimg.png";
-import axel_fiks from "../assets/proyectos/axel fiks.png";
-import catriel from "../assets/proyectos/catriel.png";
-import franzizca from "../assets/proyectos/franzizca.png";
-import no_te_vayas from "../assets/proyectos/NOTEVAYAS.png";
-import minerva from "../assets/proyectos/minerva.png";
-import scan from "../assets/proyectos/scan1.png";
-import scan2 from "../assets/proyectos/scan2.png";
-import scan3 from "../assets/proyectos/scan3.png";
-import que_me_hiciste from "../assets/proyectos/quemehiciste.png";
-import no_te_vayas2 from "../assets/proyectos/NOTEVAYAS.png";
-import pixel_azul from "../assets/proyectos/20250603-1444-02.9791464 1.png";
-import minerva2 from "../assets/proyectos/minerva2.png";
-import quetriste from "../assets/proyectos/quetriste.png";
-import clips from "../assets/proyectos/clips.png";
-    const proyectos = [
-        { title: 'Minerva ', image: minerva },
-        { title: "Clips", image: clips },
-        { title: "Valdrá la pena", image: valdra_la_pena },
-        { title: "Minerva 2", image: minerva2 },
-        { title: "Qué triste", image: quetriste },
-        { title: "Axel Fiks", image: axel_fiks },
-        { title: "Catriel", image: catriel },
-        { title: "Franzizca", image: franzizca },
-        { title: "No te vayas", image: no_te_vayas },
-        { title: "Scan", image: scan },
-        { title: "Scan 2", image: scan2 },
-        { title: "Scan 3", image: scan3 },
-        { title: "¿Qué me hiciste?", image: que_me_hiciste },
-        { title: "No te vayas 2", image: no_te_vayas2 },
-        { title: "Pixel Azul", image: pixel_azul },
-    ];
+import KonvaGallery from "../components/KonvaGallery.jsx";
 
+// IMPORTS COMO URL (¡fijate los espacios en nombres!)
+import valdra_la_penaUrl from "../assets/proyectos/proyectoimg.png?url";
+import axel_fiksUrl from "../assets/proyectos/axel fiks.png?url";
+import catrielUrl from "../assets/proyectos/catriel.png?url";
+import franzizcaUrl from "../assets/proyectos/franzizca.png?url";
+import no_te_vayasUrl from "../assets/proyectos/NOTEVAYAS.png?url";
+import minervaUrl from "../assets/proyectos/minerva.png?url";
+import scanUrl from "../assets/proyectos/scan1.png?url";
+import scan2Url from "../assets/proyectos/scan2.png?url";
+import scan3Url from "../assets/proyectos/scan3.png?url";
+import que_me_hicisteUrl from "../assets/proyectos/quemehiciste.png?url";
+import no_te_vayas2Url from "../assets/proyectos/NOTEVAYAS.png?url";
+import pixel_azulUrl from "../assets/proyectos/20250603-1444-02.9791464 1.png?url";
+import minerva2Url from "../assets/proyectos/minerva2.png?url";
+import quetristeUrl from "../assets/proyectos/quetriste.png?url";
+import clipsUrl from "../assets/proyectos/clips.png?url";
+
+const proyectos = [
+  { title: 'Minerva', url: minervaUrl, x: 0, y: 20, w: 2000, h: 140 },
+  { title: 'Clips', url: clipsUrl },
+  { title: 'Valdrá la pena', url: valdra_la_penaUrl },
+  { title: 'Minerva 2', url: minerva2Url },
+  { title: 'Qué triste', url: quetristeUrl },
+  { title: 'Axel Fiks', url: axel_fiksUrl },
+  { title: 'Catriel', url: catrielUrl },
+  { title: 'Franzizca', url: franzizcaUrl },
+  { title: 'No te vayas', url: no_te_vayasUrl },
+  { title: 'Scan', url: scanUrl },
+  { title: 'Scan 2', url: scan2Url },
+  { title: 'Scan 3', url: scan3Url },
+  { title: '¿Qué me hiciste?', url: que_me_hicisteUrl },
+  { title: 'No te vayas 2', url: no_te_vayas2Url },
+  { title: 'Pixel Azul', url: pixel_azulUrl },
+];
 ---
 
-
-
-<section> 
-    <div class=" z-0  w-screen"><Image  loading="eager" 
-  decoding="async" src={proyectos[0].image} alt={proyectos[0].title} class="mt-2 w-full" /></div>
-    <div class=" -mt-[3z0vh]  "><Image src={proyectos[1].image} alt={proyectos[1].title} class="mt- w-[30vw] ml-[20vw]" /></div>
-    <div class=" ml-100"><Image src={proyectos[2].image} alt={proyectos[2].title} class="mt-2 w-[1400px]" /></div>
-
+<section class="relative">
+  {/* Renderizamos la isla de React en el cliente */}
+  <KonvaGallery items={proyectos} client:load />
 </section>
