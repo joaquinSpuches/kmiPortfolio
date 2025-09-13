@@ -1,7 +1,7 @@
 ---
-import KonvaGallery from "../components/KonvaGallery.jsx";
+import KonvaGallery from "../components/KonvaGallery.tsx";
 
-// IMPORTS COMO URL (¡fijate los espacios en nombres!)
+// IMPORTS COMO URL (sirven con nombres de archivo con espacios)
 import valdra_la_penaUrl from "../assets/proyectos/proyectoimg.png?url";
 import axel_fiksUrl from "../assets/proyectos/axel fiks.png?url";
 import catrielUrl from "../assets/proyectos/catriel.png?url";
@@ -12,32 +12,42 @@ import scanUrl from "../assets/proyectos/scan1.png?url";
 import scan2Url from "../assets/proyectos/scan2.png?url";
 import scan3Url from "../assets/proyectos/scan3.png?url";
 import que_me_hicisteUrl from "../assets/proyectos/quemehiciste.png?url";
-import no_te_vayas2Url from "../assets/proyectos/NOTEVAYAS.png?url";
+import no_te_vayas2Url from "../assets/proyectos/NOTEVAYAS.png?url"; // reutilizado
 import pixel_azulUrl from "../assets/proyectos/20250603-1444-02.9791464 1.png?url";
 import minerva2Url from "../assets/proyectos/minerva2.png?url";
 import quetristeUrl from "../assets/proyectos/quetriste.png?url";
 import clipsUrl from "../assets/proyectos/clips.png?url";
 
-const proyectos = [
-  { title: 'Minerva', url: minervaUrl, x: 0, y: 20, w: 2000, h: 140 },
-  { title: 'Clips', url: clipsUrl },
-  { title: 'Valdrá la pena', url: valdra_la_penaUrl },
-  { title: 'Minerva 2', url: minerva2Url },
-  { title: 'Qué triste', url: quetristeUrl },
-  { title: 'Axel Fiks', url: axel_fiksUrl },
-  { title: 'Catriel', url: catrielUrl },
-  { title: 'Franzizca', url: franzizcaUrl },
-  { title: 'No te vayas', url: no_te_vayasUrl },
-  { title: 'Scan', url: scanUrl },
-  { title: 'Scan 2', url: scan2Url },
-  { title: 'Scan 3', url: scan3Url },
-  { title: '¿Qué me hiciste?', url: que_me_hicisteUrl },
-  { title: 'No te vayas 2', url: no_te_vayas2Url },
-  { title: 'Pixel Azul', url: pixel_azulUrl },
+// TIPO DE ITEM (debe coincidir con KonvaGallery.tsx)
+type Item = {
+  title: string;
+  url: string;
+  x?: number;
+  y?: number;
+  w?: number;
+  h?: number;
+};
+
+// GALERÍA: si un item trae x/y se usan como layout libre; si no, cae en grilla
+const proyectos: Item[] = [
+  { title: "Minerva", url: minervaUrl, x: 0, y: 0, w: 2560, h: 140 },
+  { title: "Clips", url: clipsUrl, x: 400, y: 840, w: 600 },
+  { title: "Valdrá la pena", url: valdra_la_penaUrl, x: 30, y: 1460, w: 1020 },
+  { title: "No te vayas", url: no_te_vayasUrl, x: 400, y: 1800 },
+  { title: "Minerva 2", url: minerva2Url, x: 600, y: 1900 },
+  { title: "Qué triste", url: quetristeUrl, x: 800, y: 1100 },
+  { title: "Axel Fiks", url: axel_fiksUrl, x: 1000, y: 1400 },
+  { title: "Catriel", url: catrielUrl, x: 1200, y: 1600 },
+  { title: "Franzizca", url: franzizcaUrl, x: 400, y: 1800 },
+  { title: "Scan", url: scanUrl, x: 400, y: 2200 },
+  { title: "Scan 2", url: scan2Url, x: 400, y: 2500 },
+  { title: "Scan 3", url: scan3Url, x: 400, y: 2700 },
+  { title: "¿Qué me hiciste?", url: que_me_hicisteUrl, x: 400, y: 3000 },
+  { title: "No te vayas 2", url: no_te_vayas2Url, x: 400, y: 2200 },
+  { title: "Pixel Azul", url: pixel_azulUrl, x: 400, y: 3500 },
 ];
 ---
 
 <section class="relative">
-  {/* Renderizamos la isla de React en el cliente */}
   <KonvaGallery items={proyectos} client:load />
 </section>
